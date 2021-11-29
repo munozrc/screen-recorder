@@ -1,0 +1,13 @@
+.btnWrapper {
+  min-width: 200px;
+  min-height: 45px;
+  padding: 0 1em;
+  font-size: 1.1em;
+  font-weight: 500;
+  line-height: 0.8;
+}
+
+.primary {
+  background-color: #121212;
+  color: #fafafa;
+}
