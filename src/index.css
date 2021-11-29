@@ -21,6 +21,12 @@ button {
   border: none;
 }
 
+.btn-recording {
+  background-color: #61afef;
+  min-width: 100px;
+  height: 44px;
+}
+
 a {
   text-decoration: none;
 }
