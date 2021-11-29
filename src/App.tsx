@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import Button from './components/Button'
 import useMediaRecorder from './hooks/useMediaRecorder'
 
 const App: FC<{}> = () => {
@@ -7,7 +8,7 @@ const App: FC<{}> = () => {
   return (
     <div>
       <h1>Screen Recorder</h1>
-      <button onClick={startRecording} className='btn-recording'>Start</button>
+      <Button onClick={startRecording}>Grabar</Button>
     </div>
   )
 }
