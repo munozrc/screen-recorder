@@ -5,47 +5,46 @@ interface ReturnType {
 }
 
 function useMediaRecorder (): ReturnType {
-  const mediaRecorder = useRef<MediaRecorder | null>(null)
-  const mediaChunks = useRef<Blob[]>([])
+  const recorder = useRef<MediaRecorder | null>(null)
+  const chunks = useRef<Blob[]>([])
   const mediaStream = useRef<MediaStream | null>(null)
 
   const startRecording = async (): Promise<void> => {
-    mediaStream.current = await navigator.mediaDevices.getDisplayMedia({
-      video: true,
-      audio: false
-    })
+    const constraints = { audio: true, video: true }
 
-    mediaRecorder.current = new MediaRecorder(mediaStream.current, {
-      mimeType: 'video/webm'
-    })
+    mediaStream.current = await navigator.mediaDevices.getDisplayMedia(constraints)
 
-    mediaRecorder.current.ondataavailable = onRecordingActive
-    mediaRecorder.current.onstop = onRecordingStop
-    mediaRecorder.current.onerror = (error) => {
+    const mime = MediaRecorder.isTypeSupported('video/webm;codecs=vp9')
+      ? 'video/webm; codecs=vp9'
+      : 'video/webm'
+
+    recorder.current = new MediaRecorder(mediaStream.current, { mimeType: mime })
+
+    recorder.current.ondataavailable = onRecordingActive
+    recorder.current.onstop = onRecordingStop
+    recorder.current.onerror = (error) => {
       console.log({ error })
     }
 
-    mediaRecorder.current.start()
+    recorder.current.start()
     console.log('start recording....')
   }
 
   const onRecordingActive = ({ data }: BlobEvent): void => {
-    console.log('recording')
-    mediaChunks.current.push(data)
+    if (data.size > 0) chunks.current.push(data)
   }
 
   const onRecordingStop = (): void => {
-    const [chunk] = mediaChunks.current
-    const blobProperty: BlobPropertyBag = Object.assign(
-      { type: chunk.type }
-    )
-    const blob = new Blob(mediaChunks.current, blobProperty)
+    console.log('stop recording...')
+
+    const [chunk] = chunks.current
+    const blob = new Blob(chunks.current, { type: chunk.type })
     const link = document.createElement('a')
 
-    mediaChunks.current = []
+    chunks.current = []
 
     link.href = URL.createObjectURL(blob)
-    link.download = 'video.mp4'
+    link.download = `${Date.now()}.webm`
     link.click()
   }
 
