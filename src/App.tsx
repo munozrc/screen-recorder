@@ -6,7 +6,7 @@ const App: FC<{}> = () => {
   const { startRecording } = useMediaRecorder()
 
   return (
-    <div>
+    <div className='wrapper'>
       <h1>Screen Recorder</h1>
       <Button onClick={startRecording}>Grabar</Button>
     </div>
