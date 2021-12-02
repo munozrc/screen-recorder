@@ -13,38 +13,26 @@ function useMediaRecorder (): ReturnType {
     const constraints = { audio: true, video: true }
 
     mediaStream.current = await navigator.mediaDevices.getDisplayMedia(constraints)
-
-    const mime = MediaRecorder.isTypeSupported('video/webm;codecs=vp9')
-      ? 'video/webm; codecs=vp9'
-      : 'video/webm'
-
-    recorder.current = new MediaRecorder(mediaStream.current, { mimeType: mime })
+    recorder.current = new MediaRecorder(mediaStream.current)
 
     recorder.current.ondataavailable = onRecordingActive
     recorder.current.onstop = onRecordingStop
-    recorder.current.onerror = (error) => {
-      console.log({ error })
-    }
-
+    recorder.current.onerror = (error) => { console.log({ error }) }
     recorder.current.start()
-    console.log('start recording....')
   }
 
   const onRecordingActive = ({ data }: BlobEvent): void => {
-    if (data.size > 0) chunks.current.push(data)
+    chunks.current.push(data)
   }
 
   const onRecordingStop = (): void => {
-    console.log('stop recording...')
-
-    const [chunk] = chunks.current
-    const blob = new Blob(chunks.current, { type: chunk.type })
+    const blob = new Blob(chunks.current, { type: 'video/mp4' })
     const link = document.createElement('a')
 
     chunks.current = []
 
     link.href = URL.createObjectURL(blob)
-    link.download = `${Date.now()}.webm`
+    link.download = `${Date.now()}.mp4`
     link.click()
   }
 
