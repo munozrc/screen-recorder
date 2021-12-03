@@ -7,13 +7,13 @@ interface ReturnType {
 function useMediaRecorder (): ReturnType {
   const recorder = useRef<MediaRecorder | null>(null)
   const chunks = useRef<Blob[]>([])
-  const mediaStream = useRef<MediaStream | null>(null)
+  const stream = useRef<MediaStream | null>(null)
 
   const startRecording = async (): Promise<void> => {
     const constraints = { audio: true, video: true }
 
-    mediaStream.current = await navigator.mediaDevices.getDisplayMedia(constraints)
-    recorder.current = new MediaRecorder(mediaStream.current)
+    stream.current = await navigator.mediaDevices.getDisplayMedia(constraints)
+    recorder.current = new MediaRecorder(stream.current)
 
     recorder.current.ondataavailable = onRecordingActive
     recorder.current.onstop = onRecordingStop
