@@ -11,7 +11,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  background-color: #fafafa;
+  background-color: #191b22;
 }
 
 #root, .wrapper {
@@ -28,6 +28,28 @@ body {
 .wrapper {
   flex-direction: column;
   gap: 20px;
+}
+
+.wrapper footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 3em 4em;
+  font-size: 18px;
+}
+
+.wrapper footer a {
+  color: #9baec8;
+  cursor: pointer;
+}
+
+.wrapper footer a strong {
+  color: #2b90d9;
+  transition: color .3s ease;
+}
+
+.wrapper footer a:hover strong {
+  color: #2588d0;
 }
 
 button {

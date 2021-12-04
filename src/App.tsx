@@ -9,6 +9,9 @@ const App: FC<{}> = () => {
     <div className='wrapper'>
       <h1>Screen Recorder</h1>
       <Button onClick={startRecording}>Grabar</Button>
+      <footer>
+        <a>by <strong>@munozrc</strong></a>
+      </footer>
     </div>
   )
 }
