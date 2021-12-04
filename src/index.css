@@ -52,6 +52,10 @@ body {
   color: #2588d0;
 }
 
+.wrapper h1 {
+  color: #d9e1e8;
+}
+
 button {
   color: #fafafa;
   background: none;
