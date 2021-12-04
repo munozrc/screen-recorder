@@ -2,6 +2,8 @@ import { FC } from 'react'
 import Button from './components/Button'
 import useMediaRecorder from './hooks/useMediaRecorder'
 
+import styles from './styles/styles.module.css'
+
 const statusMessage = (status: string): string => status === 'idle' ? 'Grabar' : 'Detener'
 const ButtonRecColor = (status: string): string => status === 'idle' ? 'primary' : 'warning'
 
@@ -9,21 +11,22 @@ const App: FC<{}> = () => {
   const { status, startRecording } = useMediaRecorder()
 
   return (
-    <div className='wrapper'>
-      <h1>Screen Recorder</h1>
+    <div className={styles.wrapper}>
+      <h1 className={styles.title}>Screen Recorder</h1>
       <Button
         onClick={startRecording}
         variant={ButtonRecColor(status)}
       >
         {statusMessage(status)}
       </Button>
-      <footer>
+      <footer className={styles.footer}>
         <a
+          className={styles.link}
           href='https://github.com/munozrc'
           target='_blank'
           rel='noreferrer'
         >
-          by <strong>@munozrc</strong>
+          by <strong className={styles.name}>@munozrc</strong>
         </a>
       </footer>
     </div>
