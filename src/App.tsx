@@ -10,7 +10,13 @@ const App: FC<{}> = () => {
       <h1>Screen Recorder</h1>
       <Button onClick={startRecording}>Grabar</Button>
       <footer>
-        <a>by <strong>@munozrc</strong></a>
+        <a
+          href='https://github.com/munozrc'
+          target='_blank'
+          rel='noreferrer'
+        >
+          by <strong>@munozrc</strong>
+        </a>
       </footer>
     </div>
   )
