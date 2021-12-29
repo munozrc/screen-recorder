@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react'
 
 interface ReturnType {
+  toggleRecorder: () => void
   startRecording: () => void
   stopRecording: () => void
   status: StatusMessages
@@ -67,7 +68,17 @@ function useMediaRecorder (): ReturnType {
     changeStatus('idle')
   }
 
-  return { status, startRecording, stopRecording }
+  const toggleRecorder = (): void => {
+    if (status === 'idle') {
+      startRecording()
+        .then(() => console.log('Start Recording'))
+        .catch((err) => console.error(err))
+    } else if (status === 'recording') {
+      stopRecording()
+    }
+  }
+
+  return { status, toggleRecorder, startRecording, stopRecording }
 }
 
 export default useMediaRecorder
