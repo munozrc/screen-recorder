@@ -8,13 +8,13 @@ const statusMessage = (status: string): string => status === 'idle' ? 'Grabar' :
 const ButtonRecColor = (status: string): string => status === 'idle' ? 'primary' : 'warning'
 
 const App: FC<{}> = () => {
-  const { status, startRecording } = useMediaRecorder()
+  const { status, toggleRecorder } = useMediaRecorder()
 
   return (
     <div className={styles.wrapper}>
       <h1 className={styles.title}>Screen Recorder</h1>
       <Button
-        onClick={startRecording}
+        onClick={toggleRecorder}
         variant={ButtonRecColor(status)}
       >
         {statusMessage(status)}
