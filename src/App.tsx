@@ -4,8 +4,17 @@ import useMediaRecorder from './hooks/useMediaRecorder'
 
 import styles from './styles/styles.module.css'
 
-const statusMessage = (status: string): string => status === 'idle' ? 'Grabar' : 'Detener'
-const ButtonRecColor = (status: string): string => status === 'idle' ? 'primary' : 'warning'
+const STATUS_MESSAGES = {
+  idle: 'Grabar',
+  recording: 'Detener',
+  stopping: 'Descargando...'
+}
+
+const STYLES_BUTTON_RECORDER = {
+  idle: 'primary',
+  recording: 'warning',
+  stopping: 'primary'
+}
 
 const App: FC<{}> = () => {
   const { status, toggleRecorder } = useMediaRecorder()
@@ -15,9 +24,9 @@ const App: FC<{}> = () => {
       <h1 className={styles.title}>Screen Recorder</h1>
       <Button
         onClick={toggleRecorder}
-        variant={ButtonRecColor(status)}
+        variant={STYLES_BUTTON_RECORDER[status] ?? 'primary'}
       >
-        {statusMessage(status)}
+        {STATUS_MESSAGES[status] ?? 'Grabar'}
       </Button>
       <footer className={styles.footer}>
         <a
