@@ -1,7 +1,6 @@
 import { FC } from 'react'
 import Button from './components/Button'
 import useMediaRecorder from './hooks/useMediaRecorder'
-
 import styles from './styles/styles.module.css'
 
 const STATUS_MESSAGES = {
@@ -31,9 +30,9 @@ const App: FC<{}> = () => {
       <footer className={styles.footer}>
         <a
           className={styles.link}
-          href='https://github.com/munozrc'
-          target='_blank'
-          rel='noreferrer'
+          href="https://github.com/munozrc"
+          target="_blank"
+          rel="noreferrer"
         >
           by <strong className={styles.name}>@munozrc</strong>
         </a>

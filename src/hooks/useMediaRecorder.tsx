@@ -1,16 +1,16 @@
 import { useRef, useState } from 'react'
 
+export type StatusMessages =
+  | 'idle'
+  | 'recording'
+  | 'stopping'
+
 interface ReturnType {
   toggleRecorder: () => void
   startRecording: () => void
   stopRecording: () => void
   status: StatusMessages
 }
-
-export type StatusMessages =
-  | 'idle'
-  | 'recording'
-  | 'stopping'
 
 function useMediaRecorder (): ReturnType {
   const recorder = useRef<MediaRecorder | null>(null)
