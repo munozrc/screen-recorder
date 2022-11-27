@@ -12,3 +12,11 @@ html,
 body {
   font-size: 16px;
 }
+
+video {
+  background-color: #101010;
+  border-radius: 6px;
+  margin: 20px;
+  width: 600px;
+  aspect-ratio: 16/9;
+}
