@@ -1,8 +1,6 @@
 import { useRef, useState } from "react"
 import fixWebmDuration from "fix-webm-duration"
 
-const constraints = { audio: true, video: true }
-
 export default function App () {
   const recorder = useRef<MediaRecorder>()
   const stream = useRef<MediaStream>()
@@ -22,7 +20,10 @@ export default function App () {
     const duration = Date.now() - startTime.current
     const blob = new Blob(mediaParts.current, { type: "video/webm" })
 
-    stream.current?.getTracks().forEach((track) => track.stop())
+    stream.current?.getTracks().forEach((track) => {
+      console.log({ settings: track.getSettings() })
+      track.stop()
+    })
 
     const fixBlob = await fixWebmDuration(blob, duration, { logger: false })
 
@@ -44,7 +45,14 @@ export default function App () {
       return
     }
 
-    const mediaStream = await navigator.mediaDevices.getDisplayMedia(constraints)
+    const mediaStream = await navigator.mediaDevices.getDisplayMedia({
+      video: true,
+      audio: {
+        autoGainControl: false,
+        echoCancellation: false,
+        noiseSuppression: false
+      }
+    })
 
     stream.current = mediaStream
     recorder.current = new MediaRecorder(mediaStream)
