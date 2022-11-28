@@ -1,5 +1,8 @@
 import { useRef, useState } from "react"
 import fixWebmDuration from "fix-webm-duration"
+import { ScreenPreview } from "./components"
+
+import styles from "./styles/app.module.css"
 
 export default function App () {
   const recorder = useRef<MediaRecorder>()
@@ -74,12 +77,12 @@ export default function App () {
   }
 
   return (
-    <main>
+    <div className={styles.appWrapper}>
       <h1>srecorder</h1>
       <button onClick={handleClick}>
         {status === "idle" ? "Grabar" : "Detener"}
       </button>
-      <video ref={video} />
-    </main>
+      <ScreenPreview ref={video}/>
+    </div>
   )
 }
