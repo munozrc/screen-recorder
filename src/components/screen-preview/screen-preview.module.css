@@ -1,5 +1,14 @@
 .container {
   width: 100%;
-  background-color: #121212;
+  background-color: #000000;
+  border: 4px solid #2C2C2C;
   border-radius: 8px;
+  overflow: hidden;
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16/9;
+  background-color: #000000;
 }
