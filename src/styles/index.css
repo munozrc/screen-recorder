@@ -11,12 +11,9 @@
 html,
 body {
   font-size: 16px;
+  background-color: #191B22;
 }
 
-video {
-  background-color: #101010;
-  border-radius: 6px;
-  margin: 20px;
-  width: 600px;
-  aspect-ratio: 16/9;
+#root {
+  padding: 30px;
 }
