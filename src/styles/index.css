@@ -11,9 +11,9 @@
 html,
 body {
   font-size: 16px;
-  background-color: #191B22;
+  background-color: #111111;
 }
 
 #root {
-  padding: 30px;
+  padding: 40px;
 }

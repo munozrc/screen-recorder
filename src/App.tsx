@@ -78,11 +78,17 @@ export default function App () {
 
   return (
     <div className={styles.appWrapper}>
-      <h1>srecorder</h1>
-      <button onClick={handleClick}>
-        {status === "idle" ? "Grabar" : "Detener"}
-      </button>
-      <ScreenPreview ref={video}/>
+      <header className={styles.appHeader}>
+        <h1 className={styles.branding}>Simple Screen Recorder</h1>
+      </header>
+      <section className={styles.appBody}>
+        <ScreenPreview ref={video}/>
+        <aside className={styles.appControls}>
+          <button onClick={handleClick}>
+            {status === "idle" ? "Grabar" : "Detener"}
+          </button>
+        </aside>
+      </section>
     </div>
   )
 }
