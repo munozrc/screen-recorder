@@ -82,18 +82,30 @@ export default function App () {
     <>
       <header className={styles.appHeader}>
         <h1 className={styles.branding}>ScreenRecorder</h1>
-        <button className={styles.githubButton}>
+        <a
+          className={styles.githubButton}
+          href="https://github.com/munozrc/screen-recorder"
+          target="_blank"
+          rel="noreferrer"
+        >
           <GithubIcon size="1.2rem" color="#d9e1e8"/>
-        </button>
+        </a>
       </header>
       <div className={styles.appBody}>
         <ScreenPreview ref={video}/>
         <aside className={styles.appControls}>
-          <label>
-            <strong>Configuraciones</strong>
-            <button>Seleccionar Pantalla</button>
-          </label>
-          <button onClick={handleClick}>
+          <h3 className={styles.title}>Configuraciones</h3>
+          <section className={styles.controlContainer}>
+            <label className={styles.controlOption}>
+              <span>Pantalla</span>
+              <button>Sin Fuente</button>
+            </label>
+            <label className={styles.controlOption}>
+              <span>Audio</span>
+              <button>Sin Fuente</button>
+            </label>
+          </section>
+          <button onClick={handleClick} className={styles.recordButton}>
             {status === "idle" ? "Grabar" : "Detener"}
           </button>
         </aside>

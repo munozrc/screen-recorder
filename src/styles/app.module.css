@@ -35,8 +35,62 @@
 }
 
 .appControls {
-  width: 500px;
+  width: 320px;
   height: 80px;
   display: flex;
   flex-direction: column;
+  padding: 20px 20px 20px 0px;
+  gap: 14px;
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #d9e1e8;
+}
+
+.controlContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.controlOption {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #7581a3;
+  gap: 10px;
+}
+
+.controlOption>span {
+  min-width: 55px;
+}
+
+.controlOption>button {
+  width: 100%;
+  background: none;
+  outline: none;
+  border: none;
+  background-color: #191b22;
+  border-radius: 4px;
+  color: #bebebe;
+  padding: 8px 12px;
+  cursor: pointer;
+  text-align: left;
+  font-size: 0.8rem;
+}
+
+.recordButton {
+  background: none;
+  outline: none;
+  border: none;
+  background-color: #6767fd;
+  padding: 8px 12px;
+  text-align: center;
+  border-radius: 4px;
+  font-size: 1rem;
+  color: #fafafa;
+  font-weight: 600;
 }
