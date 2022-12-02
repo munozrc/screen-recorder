@@ -11,9 +11,10 @@
 html,
 body {
   font-size: 16px;
-  background-color: #111111;
+  background-color: #282c37;
 }
 
 #root {
-  padding: 40px;
+  display: flex;
+  flex-direction: column;
 }

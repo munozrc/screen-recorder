@@ -1,6 +1,6 @@
 import { useRef, useState } from "react"
 import fixWebmDuration from "fix-webm-duration"
-import { ScreenPreview } from "./components"
+import { GithubIcon, ScreenPreview } from "./components"
 
 import styles from "./styles/app.module.css"
 
@@ -57,6 +57,8 @@ export default function App () {
       }
     })
 
+    console.log({ mediaStream: mediaStream.getTracks() })
+
     stream.current = mediaStream
     recorder.current = new MediaRecorder(mediaStream)
     startTime.current = Date.now()
@@ -77,17 +79,25 @@ export default function App () {
   }
 
   return (
-    <div className={styles.appWrapper}>
+    <>
       <header className={styles.appHeader}>
-        <h1 className={styles.branding}>&lt;ScreenRecorder&gt;</h1>
-        <button>Github</button>
-      </header>
-      <ScreenPreview ref={video}/>
-      <aside className={styles.appControls}>
-        <button onClick={handleClick}>
-          {status === "idle" ? "Grabar" : "Detener"}
+        <h1 className={styles.branding}>ScreenRecorder</h1>
+        <button className={styles.githubButton}>
+          <GithubIcon size="1.2rem" color="#d9e1e8"/>
         </button>
-      </aside>
-    </div>
+      </header>
+      <div className={styles.appBody}>
+        <ScreenPreview ref={video}/>
+        <aside className={styles.appControls}>
+          <label>
+            <strong>Configuraciones</strong>
+            <button>Seleccionar Pantalla</button>
+          </label>
+          <button onClick={handleClick}>
+            {status === "idle" ? "Grabar" : "Detener"}
+          </button>
+        </aside>
+      </div>
+    </>
   )
 }

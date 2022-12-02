@@ -1,26 +1,42 @@
-.appWrapper {
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
 .appHeader {
   width: 100%;
   height: 60px;
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  background-color: #191b22;
+  border-bottom: 2px solid #313543;
+  padding: 0 20px;
 }
 
 .branding {
-  color: #DDDDDD;
+  color: #fafafa;
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.githubButton {
+  background: none;
+  border: none;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 9px 8px 7px 8px;
+  background-color: #313543;
+  border-radius: 50%;
+}
+
+.appBody {
+  width: 100%;
+  display: flex;
 }
 
 .appControls {
-  margin-top: 20px;
-  width: 100%;
+  width: 500px;
   height: 80px;
   display: flex;
-  background-color: #2C2C2C;
-  border-radius: 8px;
+  flex-direction: column;
 }
