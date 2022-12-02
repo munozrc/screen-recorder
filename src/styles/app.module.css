@@ -94,4 +94,14 @@
   font-size: 1rem;
   color: #fafafa;
   font-weight: 600;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.recordButton:hover:enabled {
+  background-color: #5d5dfa;
+}
+
+.recordButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
 }
