@@ -65,11 +65,12 @@
 }
 
 .controlOption>span {
-  min-width: 55px;
+  min-width: 75px;
 }
 
 .controlOption>button {
   width: 100%;
+  min-height: 33px;
   background: none;
   outline: none;
   border: none;

@@ -11,4 +11,5 @@
   border: 2px solid #313543;
   border-radius: 8px;
   overflow: hidden;
+  outline: none;
 }
