@@ -1,107 +1,29 @@
-.appHeader {
-  width: 100%;
-  height: 60px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #191b22;
-  border-bottom: 2px solid #313543;
-  padding: 0 20px;
-}
-
-.branding {
-  color: #fafafa;
-  font-size: 1.2rem;
-  font-weight: 500;
-  line-height: 1;
-}
-
-.githubButton {
-  background: none;
-  border: none;
-  outline: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 9px 8px 7px 8px;
-  background-color: #313543;
-  border-radius: 50%;
-}
-
-.appBody {
-  width: 100%;
-  display: flex;
-}
-
-.appControls {
-  width: 320px;
-  height: 80px;
+.container {
   display: flex;
   flex-direction: column;
-  padding: 20px 20px 20px 0px;
-  gap: 14px;
+  align-items: center;
+  gap: 30px;
 }
 
 .title {
-  font-size: 1rem;
-  font-weight: 500;
-  color: #d9e1e8;
+  font-size: 46px;
+  font-weight: 900;
+  line-height: 54px;
+  background: linear-gradient(89.87deg, #FF6868 0.08%, #F9BD4B 99.87%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.controlContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.controlOption {
+.button {
+  all: unset;
   display: flex;
   align-items: center;
-  font-size: 0.9rem;
-  font-weight: 400;
-  color: #7581a3;
-  gap: 10px;
-}
-
-.controlOption>span {
-  min-width: 75px;
-}
-
-.controlOption>button {
-  width: 100%;
-  min-height: 33px;
-  background: none;
-  outline: none;
-  border: none;
-  background-color: #191b22;
-  border-radius: 4px;
-  color: #bebebe;
-  padding: 8px 12px;
-  cursor: pointer;
-  text-align: left;
-  font-size: 0.8rem;
-}
-
-.recordButton {
-  background: none;
-  outline: none;
-  border: none;
-  background-color: #6767fd;
-  padding: 8px 12px;
-  text-align: center;
-  border-radius: 4px;
-  font-size: 1rem;
-  color: #fafafa;
-  font-weight: 600;
-  transition: background-color 0.3s ease-in-out;
-}
-
-.recordButton:hover:enabled {
-  background-color: #5d5dfa;
-}
-
-.recordButton:disabled {
-  cursor: not-allowed;
-  opacity: 0.6;
+  border-radius: 6px;
+  background: #242424;
+  color: #E6E6E6;
+  font-size: .95rem;
+  font-weight: 500;
+  line-height: 1rem;
+  padding: 0.6rem 1rem;
 }
