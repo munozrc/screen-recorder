@@ -1,0 +1,14 @@
+.input {
+  all: unset;
+  width: 100%;
+  display: flex;
+  color: #131313;
+  background-color: #FAFAFA;
+  border-radius: 6px;
+  padding: 0.6rem 1rem;
+  box-shadow: rgba(149, 157, 165, 0.1) 0px 8px 24px;
+}
+
+.input::placeholder {
+  color: #ADADAD;
+}
